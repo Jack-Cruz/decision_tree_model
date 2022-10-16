@@ -36,7 +36,7 @@ def predict_pipeline(test):
     base_elem['SAMS_item6'] = test.SAMS_item6
     base_elem['SAMS_item10'] = test.SAMS_item10
     base_elem['SAMS_item11'] = test.SAMS_item11
-    base_elem['SAMS_item15'] = test.SAMS_Item15
+    base_elem['SAMS_item15'] = test.SAMS_item15
     base_elem['SAMS_item17'] = test.SAMS_item17
     base_elem['SAMS_item19'] = test.SAMS_item19
     
