@@ -9,7 +9,6 @@ class TextIn(BaseModel):
     age: int
     sex: str
     marital_status: str
-    casado: str
     Education: str
     Medication_preparation_by: str
     medication: int

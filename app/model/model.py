@@ -27,15 +27,56 @@ def predict_pipeline(test):
        'Medication preparation by_vinculado':0, 'Education_primaria completa':0,
        'Education_universitaria completa':0,
        'Education_universitaria incompleta':0}
-  
+    
+    # Variables directas (tipo numérico)
     base_elem['age'] = test.age
-    # for k, e in test:
-    #     aux = str(e)
-    #     if aux.isnumeric():
-    #         base_elem[k] = e
-    #     else:
-    #         key = k+'_'+e
-    #         base_elem[key] = 1
+    base_elem['medication'] = test.medication
+    base_elem['SAMS_item1'] = test.SAMS_item1
+    base_elem['SAMS_item3'] = test.SAMS_item3
+    base_elem['SAMS_item6'] = test.SAMS_item6
+    base_elem['SAMS_item10'] = test.SAMS_item10
+    base_elem['SAMS_item11'] = test.SAMS_item11
+    base_elem['SAMS_item15'] = test.SAMS_Item15
+    base_elem['SAMS_item17'] = test.SAMS_item17
+    base_elem['SAMS_item19'] = test.SAMS_item19
+    
+    # Variable sex
+    if test.sex == 'mujer':
+        base_elem['sex_mujer'] = 1
+    elif test.sex == 'hombre':
+        base_elem['sex_hombre'] = 1
+
+    # Variable marital_status
+    if test.marital_status == 'casado':
+        base_elem['marital status_casado'] = 1
+    elif test.marital_status == 'soltero':
+        base_elem['marital status_soltero'] = 1
+    elif test.marital_status == 'viudo o divorciado':
+        base_elem['marital status_viudo o divorciado'] = 1
+    
+    # Variable Education
+    if test.Education == 'primaria completa':
+        base_elem['Education_primaria completa'] = 1
+    elif test.Education == 'primaria incompleta':
+        base_elem['Education_primaria incompleta'] = 1
+    elif test.Education == 'secundaria completa':
+        base_elem['Education_secundaria completa'] = 1
+    elif test.Education == 'secundaria incompleta':
+        base_elem['Education_secundaria incompleta']
+    elif test.Education == 'universitaria o tecnica completa':
+        base_elem['Education_universitaria o tecnica completa'] = 1
+    elif test.Education == 'universitaria o tecnica incompleta':
+        base_elem['Education_universitaria o tecnica incompleta'] = 1
+    elif test.Education == 'universitaria completa':
+        base_elem['Education_universitaria completa'] = 1
+    elif test.Education == 'universitaria incompleta':
+        base_elem['Education_universitaria incompleta'] = 1
+    
+    # Variable Medication_preparation_by
+    if test.Medication_preparation_by == 'sin vincular':
+        base_elem['Medication preparation by_sin vincular'] = 1
+    elif test.Medication_preparation_by == 'vinvulado':
+        base_elem['Medication preparation by_vinculado'] = 1
     
     data = list(base_elem.values())
     res = model.predict([data])
