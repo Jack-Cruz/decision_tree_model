@@ -23,7 +23,7 @@ class TextIn(BaseModel):
     SAMS_item19: int
 
 class PredictionOut(BaseModel):
-    language: str
+    output: str
 
 @app.get("/")
 def home():
@@ -31,5 +31,5 @@ def home():
 
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: TextIn):
-    language = predict_pipeline(payload)
-    return {"language": language}
+    output = predict_pipeline(payload)
+    return {"output": output}
